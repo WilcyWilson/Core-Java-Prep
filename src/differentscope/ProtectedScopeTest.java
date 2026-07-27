@@ -9,3 +9,4 @@ public class ProtectedScopeTest extends ProtectedScope {
         protectedScope.abc();
     }
 }
+

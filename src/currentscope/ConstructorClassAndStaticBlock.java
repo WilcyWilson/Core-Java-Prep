@@ -1,9 +1,13 @@
 package currentscope;
 
-public class ConstructorClass {
+public class ConstructorClassAndStaticBlock {
     private final String b;
 
-    ConstructorClass(String b) {
+    static {
+        System.out.println("Inside Static Block: Runs before main");
+    }
+
+    ConstructorClassAndStaticBlock(String b) {
         System.out.println("Inside ConstructorClass");
         this.b = b + " " + "rtx";
     }
@@ -14,7 +18,8 @@ public class ConstructorClass {
     }
 
     public static void main(String[] args) {
-        ConstructorClass c = new ConstructorClass("abc");
+        System.out.println("Inside main");
+        ConstructorClassAndStaticBlock c = new ConstructorClassAndStaticBlock("abc");
         c.valueOfb();
     }
 }

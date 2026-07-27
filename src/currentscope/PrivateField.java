@@ -1,6 +1,6 @@
 package currentscope;
 
-public class PrivateField {
+public final class PrivateField extends NonAbstractSealedClass {
     final private String a = "abc";
 
     private void abc() {
@@ -11,6 +11,7 @@ public class PrivateField {
     public static void main(String[] args) {
         PrivateField f = new PrivateField();
         f.abc();
+        f.testMethod();
     }
 }
 

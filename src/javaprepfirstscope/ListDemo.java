@@ -7,7 +7,8 @@ import java.util.List;
 public class ListDemo {
     public static void main(String[] args) {
         // List thinks everything is an Object type
-        List list = new ArrayList();
+        List list = new ArrayList(); // interface inference
+        // List string = new List<String>(); // List is an interface, cannot be instantiated
         list.add("A");
         list.add(21);
         list.add(new Date().getTime());
@@ -20,3 +21,4 @@ public class ListDemo {
         System.out.println(list.get(2));
     }
 }
+

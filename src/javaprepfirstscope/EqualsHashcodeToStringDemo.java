@@ -41,6 +41,9 @@ public class EqualsHashcodeToStringDemo {
         //String overrides all 3 methods
         System.out.println(string1.equals(string2)); // true
 
+        // if equals match then the hashCode must match too in String. Both String has same value therefore their address should be the same too
+        System.out.println(string1.hashCode());
+        System.out.println(string2.hashCode());
         //implicitly calls string1.toString();
         System.out.println(string1);
 

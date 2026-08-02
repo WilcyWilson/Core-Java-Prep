@@ -44,6 +44,7 @@ public class PersonOverridesequalshashCodetoString {
     public static void main(String[] args) {
         System.out.println(new PersonOverridesequalshashCodetoString());
         PersonOverridesequalshashCodetoString p = new PersonOverridesequalshashCodetoString("John", 25);
-        System.out.println(p);
+        System.out.println("Gap");
+        System.out.println(p); //toString is only explicitly called when we want a text representation E.g. while using System.out.println
     }
 }

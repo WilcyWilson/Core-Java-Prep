@@ -13,5 +13,10 @@ public class ArraysUtilityClass{
         String[] string = {"banana", "apple"};
         Arrays.sort(string);
         System.out.println(Arrays.toString(string));
+
+        // Binary search - arrays must be sorted first
+        // [10, 15, 23, 24 (Position 4), 30] arr after sort
+        System.out.println(Arrays.binarySearch(arr, 24));
+        System.out.println(Arrays.binarySearch(arr, 25)); // -4(Insertion Point) - 1 = -5 // No conflict to index 0
     }
 }

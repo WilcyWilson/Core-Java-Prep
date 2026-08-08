@@ -20,7 +20,7 @@ public class PassByValue {
     void swapObjects(PassByValue passByValue1, PassByValue passByValue2) {
         System.out.println("\nMutated Values before swap:");
         passByValue1.getMutatedObject();
-        passByValue1.getMutatedObject();
+        passByValue2.getMutatedObject();
 
         System.out.println("\nLocal Hashcode Before Swap");
         System.out.println(System.identityHashCode(passByValue1));

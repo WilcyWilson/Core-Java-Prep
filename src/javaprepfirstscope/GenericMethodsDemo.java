@@ -14,7 +14,7 @@ public class GenericMethodsDemo {
     // Generic Method with Single Type
     public static <T> void printArray(T[] arr) {
         // containingObject::instanceMethodName
-        Arrays.stream(arr).forEach(System.out::println);
+        Arrays.stream(arr).forEach(System.out::print);
 
         // Consumer Generic accepts a single input argument of type T and returns no result (void)
         // Arrays.stream(arr).forEach(input -> System.out.println(input));

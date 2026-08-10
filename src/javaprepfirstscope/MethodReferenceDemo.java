@@ -1,7 +1,10 @@
 package javaprepfirstscope;
 
+import java.util.ArrayList;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class MethodReferenceDemo {
     public static void main(String[] args) {
@@ -30,7 +33,17 @@ public class MethodReferenceDemo {
 
         // 3. Bound Instance Method Reference
         // Syntax: instance::method
+        String greeting = "Hello";
+//        Supplier<Integer> boundMethodLambdaExpression = () -> greeting.length();
+        // The object is already bound at the time the reference is created. The functional interface takes zero arguments because the receiver is fixed.
+        Supplier<Integer> boundInstanceMethodReference = greeting::length;
+        System.out.println(boundInstanceMethodReference.get());
 
+        var list = new ArrayList<String>();
+        Consumer<String> boundMethodConsumerMethodReference = list::add;
+//        Consumer<String> lambdaExpressionConsumerMethodReference = item -> list.add(item);
 
+        boundMethodConsumerMethodReference.accept("Spiderman");
+        list.forEach(System.out::println);
     }
 }

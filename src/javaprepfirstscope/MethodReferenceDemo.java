@@ -1,6 +1,8 @@
 package javaprepfirstscope;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -23,7 +25,7 @@ public class MethodReferenceDemo {
         // Syntax: Classname::instanceMethod
         Function<String, Integer> stringLengthMethodReference = String::length;
         // Function<String, Integer> stringLengthLambdaExpression = name -> name.length();
-        System.out.println(stringLengthMethodReference.apply("Spiderman"));
+        System.out.println("\n" + stringLengthMethodReference.apply("Spiderman"));
 
         BiFunction<String, String, Integer> compareToMethodReference = String::compareTo;
         // BiFunction<String, String, Integer> compareToLambdaExpression = (a, b) -> a.compareTo(b);
@@ -37,7 +39,7 @@ public class MethodReferenceDemo {
 //        Supplier<Integer> boundMethodLambdaExpression = () -> greeting.length();
         // The object is already bound at the time the reference is created. The functional interface takes zero arguments because the receiver is fixed.
         Supplier<Integer> boundInstanceMethodReference = greeting::length;
-        System.out.println(boundInstanceMethodReference.get());
+        System.out.println("\n" + boundInstanceMethodReference.get());
 
         var list = new ArrayList<String>();
         Consumer<String> boundMethodConsumerMethodReference = list::add;
@@ -45,5 +47,31 @@ public class MethodReferenceDemo {
 
         boundMethodConsumerMethodReference.accept("Spiderman");
         list.forEach(System.out::println);
+
+        // 4. Constructor Reference
+        // Syntax: className::new
+
+//        Supplier<List<String>> listOfStringLambdaExpression = () -> new ArrayList<>();
+        Supplier<List<String>> listOfStringConstructorMethodReference = ArrayList::new;
+        List<String> listOfString = listOfStringConstructorMethodReference.get();
+        listOfString.add("\nBatman");
+        listOfString.add("Superman");
+        listOfString.forEach(System.out::println);
+
+        Function<String, File> functionConstructorMethodReference = File::new;
+//        Function<String, File> functionLambdaExpressionMethodReference = path -> new File(path);
+
+        functionConstructorMethodReference.apply("C:\\Personal\\Projects\\java-prep\\src\\javaprepfirstscope\\test.txt");
+
+//        try {
+//            if (functionConstructorMethodReference.apply("C:\\Personal\\Projects\\java-prep\\src\\javaprepfirstscope\\test.txt").createNewFile()) {
+//                System.out.println("File was created");
+//            } else {
+//                System.out.println("File already exists");
+//            }
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+
     }
 }

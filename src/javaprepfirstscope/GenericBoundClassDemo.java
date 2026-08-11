@@ -2,15 +2,15 @@ package javaprepfirstscope;
 
 // T must be Number or its subclass (Integer,Long etc.)
 // Upper Bound extends
-public class GenericBoundClassDemo <T extends Number> {
+public class GenericBoundClassDemo<T extends Number> {
     private final T value;
 
-    public GenericBoundClassDemo(T value){
+    public GenericBoundClassDemo(T value) {
         this.value = value;
     }
 
     // can call all Number methods: doubleValue(), intValue()
-    public double getDoubleValue(){
+    public double getDoubleValue() {
         return value.doubleValue();
     }
 

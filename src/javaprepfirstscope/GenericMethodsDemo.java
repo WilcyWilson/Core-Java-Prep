@@ -42,10 +42,15 @@ public class GenericMethodsDemo {
         return Arrays.stream(array).filter(Objects::nonNull).max(Comparator.naturalOrder()).orElse(null);
     }
 
-    // Generic Method with Unknown type wildcard
-
+    // Generic Method with Unknown type Unbounded wildcard
     public static void printList(List<?> list) {
         list.forEach(System.out::println);
+    }
+
+    // Generic Method with Upper bounded wildcard
+    // Accepts List of Double, Float, Integer
+    public static double sumOfList(List<? extends Number> value) {
+        return value.stream().mapToDouble(Number::doubleValue).sum();
     }
 
     public static void main(String[] args) {
@@ -63,7 +68,16 @@ public class GenericMethodsDemo {
         List<String> stringList = new ArrayList<>();
         stringList.add("\nBatman");
         stringList.add("Superman");
-        stringList.add("Ironman");
+        stringList.add("Ironman\n");
         printList(stringList);
+
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(21);
+        integerList.add(66);
+        integerList.add(78);
+
+        List<Double> doubleList = Arrays.asList(112.1, 2534.55, 323.3);
+        System.out.println(sumOfList(integerList));
+        System.out.println(sumOfList(doubleList));
     }
 }

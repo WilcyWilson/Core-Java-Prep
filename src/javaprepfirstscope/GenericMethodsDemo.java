@@ -49,8 +49,20 @@ public class GenericMethodsDemo {
 
     // Generic Method with Upper bounded wildcard
     // Accepts List of Double, Float, Integer
+    // Producer
     public static double sumOfList(List<? extends Number> value) {
         return value.stream().mapToDouble(Number::doubleValue).sum();
+    }
+
+    // Generic Method with Lower bounded wildcard
+    // holds elements of some unknown type that is a superclass (or the type itself) of Integer.
+    // Consumer
+    public static void addToList(List<? super Number> value) {
+        // The Allowed Arguments to .add(): Can only be Number or its subclasses (Integer, Double).
+        value.add(21);
+        value.add(100);
+        value.add(3.14);
+//        value.add(new Object()); // Error
     }
 
     public static void main(String[] args) {
@@ -79,5 +91,18 @@ public class GenericMethodsDemo {
         List<Double> doubleList = Arrays.asList(112.1, 2534.55, 323.3);
         System.out.println(sumOfList(integerList));
         System.out.println(sumOfList(doubleList));
+
+        List<Number> numbers = new ArrayList<>();
+        addToList(numbers);
+
+        List<Object> objects = new ArrayList<>();
+        addToList(objects);
+
+        // The List's Allowed Runtime Types: Can only be Number or its superclasses (Object).
+//        List<Integer> integers = new ArrayList<>();
+//        addToList(integers); // Error
+//
+//        List<Double> doubles = new ArrayList<>();
+//        addToList(doubles); // Error
     }
 }

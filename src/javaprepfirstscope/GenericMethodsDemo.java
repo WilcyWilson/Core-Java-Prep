@@ -104,5 +104,11 @@ public class GenericMethodsDemo {
 //
 //        List<Double> doubles = new ArrayList<>();
 //        addToList(doubles); // Error
+
+        List<String> strings = new ArrayList<>();
+        List<Integer> integers = new ArrayList<>();
+        System.out.println(strings.getClass());
+        System.out.println(integers.getClass());
+        System.out.println(strings.getClass() == integers.getClass()); // true. At runtime, Type Erasure erases generic type information
     }
 }

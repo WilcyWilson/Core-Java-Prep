@@ -42,6 +42,12 @@ public class GenericMethodsDemo {
         return Arrays.stream(array).filter(Objects::nonNull).max(Comparator.naturalOrder()).orElse(null);
     }
 
+    // Generic Method with Unknown type wildcard
+
+    public static void printList(List<?> list) {
+        list.forEach(System.out::println);
+    }
+
     public static void main(String[] args) {
         var arr = new Integer[]{1, 2, 3, 4, 555, 55, 123, 222, 101};
         var arr2 = new Integer[20];
@@ -53,5 +59,11 @@ public class GenericMethodsDemo {
         System.out.println(findMax(arr));
 
         System.out.println(findMax(arr2));
+
+        List<String> stringList = new ArrayList<>();
+        stringList.add("\nBatman");
+        stringList.add("Superman");
+        stringList.add("Ironman");
+        printList(stringList);
     }
 }

@@ -2,13 +2,13 @@ package javaprepfirstscope;
 
 import java.util.HashSet;
 
-public class RecordTest{
+public class RecordTest {
     public record RecordDemo(Integer id, Boolean isStudent) {
     }
 
     public static void main(String[] args) {
-        RecordDemo recordDemo = new RecordDemo(1,true);
-        RecordDemo recordDemo2 = new RecordDemo(1,true);
+        RecordDemo recordDemo = new RecordDemo(1, true);
+        RecordDemo recordDemo2 = new RecordDemo(1, true);
         HashSet<RecordDemo> hashSet = new HashSet<>();
         hashSet.add(recordDemo);
 

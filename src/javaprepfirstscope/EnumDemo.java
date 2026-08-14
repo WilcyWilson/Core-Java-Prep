@@ -1,6 +1,6 @@
 package javaprepfirstscope;
 
-public enum EnumDemo{
+public enum EnumDemo {
     ACTIVE,
     INACTIVE,
     UNKNOWN

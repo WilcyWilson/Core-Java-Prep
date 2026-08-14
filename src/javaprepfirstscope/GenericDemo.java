@@ -13,13 +13,13 @@ public class GenericDemo {
         names.add("Ironman");
 
         // Functional Interface that takes String and returns its length
-        Function<String,Integer> lambda = name -> name.length();
+        Function<String, Integer> lambda = name -> name.length();
 
         // Method Reference instead of Lambdas
         Function<String, Integer> methodRef = String::length;
 
         // Applying above generics to every String
-        for (String name: names) {
+        for (String name : names) {
             Integer length = lambda.apply(name);
             Integer length2 = methodRef.apply(name);
             System.out.println(name + " has " + length + " letters.");

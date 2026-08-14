@@ -2,11 +2,12 @@ package javaprepfirstscope;
 
 public non-sealed class StringNew extends SealedClass {
     public int a = 1;
-    public static void b(int c){
+
+    public static void b(int c) {
 //        System.out.print(a);
     }
 
-    public void abc(){
+    public void abc() {
         StaticClass.ABC();
     }
 

@@ -16,8 +16,7 @@ class OuterClass {
 
     // static nested class
     static class StaticNestedClass {
-        void display()
-        {
+        void display() {
             // can access static member of outer class
             System.out.println("outer_x = " + outer_x);
 

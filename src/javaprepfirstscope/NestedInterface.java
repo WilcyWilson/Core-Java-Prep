@@ -1,10 +1,11 @@
 package javaprepfirstscope;
 
 public class NestedInterface {
-    public interface ImplicitlyStaticInterface{
+    public interface ImplicitlyStaticInterface {
         void display();
     }
-    public class Implementer implements ImplicitlyStaticInterface{
+
+    public class Implementer implements ImplicitlyStaticInterface {
 
         @Override
         public void display() {

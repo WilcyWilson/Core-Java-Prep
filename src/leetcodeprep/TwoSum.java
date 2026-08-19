@@ -40,13 +40,13 @@ public class TwoSum {
     // Super slow due to boxing and unboxing
     public int[] twoSumStream(int[] nums, int target) {
 
-        return IntStream.range(0, nums.length).
+        return IntStream.range(0, nums.length).parallel().
                 boxed(). // box every int to Integer
                         flatMap(i -> // create a stream per element
                         IntStream.range(i + 1, nums.length).
                                 filter(j -> nums[i] + nums[j] == target). // box again
                                 mapToObj(j -> new int[]{i, j})). // box i and j again
-                        findFirst().
+                        findAny().
                 orElseThrow(() -> new IllegalArgumentException("Two sum solution not found for " + target));
     }
 

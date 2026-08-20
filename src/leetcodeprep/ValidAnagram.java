@@ -93,6 +93,19 @@ public class ValidAnagram {
         return true;
     }
 
+
+    public boolean isAnagramBytes(String s, String t) {
+        if (s.length() != t.length()) return false;
+
+        int[] charCounts = new int[26];
+
+        for (byte b : s.getBytes()) charCounts[b - 'a']++;
+
+        for (byte b : t.getBytes()) if (--charCounts[b - 'a'] < 0) return false;
+
+        return true;
+    }
+
     public static void main(String[] args) {
         System.out.println(new ValidAnagram().isAnagramLoops("anagram", "nagaram"));
         System.out.println(new ValidAnagram().isAnagramLoops("spider", "redspid"));
@@ -109,5 +122,9 @@ public class ValidAnagram {
         System.out.println(new ValidAnagram().isAnagramSingleHashMap("anagram", "nagaram"));
         System.out.println(new ValidAnagram().isAnagramSingleHashMap("spider", "redspid"));
         System.out.println(new ValidAnagram().isAnagramSingleHashMap("ggii", "eekk"));
+
+        System.out.println(new ValidAnagram().isAnagramBytes("anagram", "nagaram"));
+        System.out.println(new ValidAnagram().isAnagramBytes("spider", "redspid"));
+        System.out.println(new ValidAnagram().isAnagramBytes("ggii", "eekk"));
     }
 }

@@ -5,7 +5,8 @@ import java.util.Map;
 
 public class ValidAnagram {
 
-    // Time complexity O(n2)
+    // Time complexity O(n3)
+    // replaceFirst uses regex internally which is O(n)
     public boolean isAnagramLoops(String s, String t) {
         if (s.length() == t.length()) {
             int inputLength = s.length();
@@ -56,6 +57,18 @@ public class ValidAnagram {
         return false;
     }
 
+    public boolean isAnagramSingleHashMap(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        Map<Character, Integer> count = new HashMap<>();
+        for (char c : s.toCharArray()) count.put(c, count.getOrDefault(c, 0) + 1);
+        for (char c : t.toCharArray()) count.put(c, count.getOrDefault(c, 0) - 1);
+        for (int v : count.values()) if (v != 0) return false;
+        return true;
+    }
+
     // Time Complexity O(n)
     public boolean isAnagramChar(String s, String t) {
         if (s.length() != t.length()) {
@@ -92,5 +105,9 @@ public class ValidAnagram {
         System.out.println(new ValidAnagram().isAnagramChar("anagram", "nagaram"));
         System.out.println(new ValidAnagram().isAnagramChar("spider", "redspid"));
         System.out.println(new ValidAnagram().isAnagramChar("ggii", "eekk"));
+
+        System.out.println(new ValidAnagram().isAnagramSingleHashMap("anagram", "nagaram"));
+        System.out.println(new ValidAnagram().isAnagramSingleHashMap("spider", "redspid"));
+        System.out.println(new ValidAnagram().isAnagramSingleHashMap("ggii", "eekk"));
     }
 }

@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class FunctionalInterfaceBuild {
 
@@ -35,6 +36,10 @@ public class FunctionalInterfaceBuild {
         return returnValue;
     }
 
+    public static <T> T supplierCustom(Supplier<T> supply) {
+        return supply.get();
+    }
+
     public static void main(String[] args) {
         List<String> heroes = new ArrayList<>(Arrays.asList("Spider", "Plastic Man", "Ironman", "Batman", "Superman", "Batman 2099"));
         filterCustom(heroes, hero -> !hero.contains("Batman")).forEach(System.out::println);
@@ -51,6 +56,9 @@ public class FunctionalInterfaceBuild {
 
         System.out.println();
         mapCustom(heroes, String::length).forEach(System.out::println);
+
+        String hero = supplierCustom(() -> "Spider-Man");
+        System.out.println(hero);
     }
 
 }

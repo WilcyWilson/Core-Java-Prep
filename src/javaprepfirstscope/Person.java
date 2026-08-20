@@ -29,6 +29,11 @@ public record Person(String name, int age, int salary) {
 
         List<Person> list2 = new ArrayList<>(list);
         List<Person> list3 = new ArrayList<>(list);
+        List<Person> list4 = new ArrayList<>(list);
+        List<Person> list5 = new ArrayList<>(list);
+
+//        list.add(new Person(null, 0, 0)); // This will throw Null pointer exception since comparator doesn't handle null in this sort for person name
+        list5.add(new Person(null, 0, 0));
 
         System.out.println("List without any sort:");
         list.forEach(System.out::println);
@@ -49,5 +54,15 @@ public record Person(String name, int age, int salary) {
         list3.sort(Comparator.comparingInt(Person::age));
         System.out.println();
         list3.forEach(System.out::println);
+
+        System.out.println();
+        System.out.println("Reversing the salary order");
+        list4.sort(Comparator.comparingInt(Person::salary).reversed());
+        list4.forEach(System.out::println);
+
+        System.out.println();
+        System.out.println("Taking care of null conditon");
+        list5.sort(Comparator.comparing(Person::name, Comparator.nullsLast(Comparator.naturalOrder())));
+        list5.forEach(System.out::println);
     }
 }

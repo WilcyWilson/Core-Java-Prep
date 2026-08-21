@@ -1,8 +1,6 @@
 package leetcodeprep;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ContainsDuplicate {
 
@@ -30,7 +28,7 @@ public class ContainsDuplicate {
     public boolean containsDuplicateLoops2(int[] nums) {
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
-            if (i + 1 != nums.length) {
+            if ((i + 1) != nums.length) {
                 if (nums[i] == nums[i + 1]) {
                     return true;
                 }
@@ -39,12 +37,23 @@ public class ContainsDuplicate {
         return false;
     }
 
+    // Accepted
+    public boolean containsDuplicateHashSet(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // TLE
     public boolean containsDuplicateList(int[] nums) {
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (!list.contains(nums[i])) {
-                list.add(nums[i]);
+        for (int num : nums) {
+            if (!list.contains(num)) {
+                list.add(num);
             } else {
                 return true;
             }
@@ -69,6 +78,11 @@ public class ContainsDuplicate {
         System.out.println(new ContainsDuplicate().containsDuplicateLoops2(nums));
         System.out.println(new ContainsDuplicate().containsDuplicateLoops2(nums2));
         System.out.println(new ContainsDuplicate().containsDuplicateLoops2(nums3));
+
+        System.out.println();
+        System.out.println(new ContainsDuplicate().containsDuplicateHashSet(nums));
+        System.out.println(new ContainsDuplicate().containsDuplicateHashSet(nums2));
+        System.out.println(new ContainsDuplicate().containsDuplicateHashSet(nums3));
     }
 
 }

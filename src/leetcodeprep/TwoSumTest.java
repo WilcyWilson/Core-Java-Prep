@@ -2,6 +2,8 @@ package leetcodeprep;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TwoSumTest {
@@ -13,13 +15,20 @@ public class TwoSumTest {
     }
 
     @Test
-    public void testTwoSum_ShouldResultInAnException(){
+    public void testTwoSum_ShouldResultInAnException() {
         TwoSum t1 = new TwoSum();
-        int [] array2 = new int[]{2, 7, 11, 15};
+        int[] array2 = new int[]{2, 7, 11, 15};
         int target2 = 15;
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> t1.twoSumHashMap(array2, target2));
 
         assertEquals("Two sum solution not found for " + target2, exception.getMessage());
+    }
+
+    @Test
+    public void testTwoSum_ErrorMessage() {
+        TwoSum t1 = new TwoSum();
+        int[] result = t1.twoSumHashMap(new int[]{2, 7, 11, 15}, 9);
+        assert Arrays.equals(new int[]{0, 2}, result) : "Sum doesn't match to target";
     }
 }

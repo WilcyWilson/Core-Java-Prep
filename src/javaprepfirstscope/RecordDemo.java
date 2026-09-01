@@ -6,6 +6,13 @@ public record RecordDemo(String color) {
         this.color = color;
     } */
 
+    // Compact Constructor. Automatically assigns variable
+    public RecordDemo{
+        if (color.equals("Red")){
+            System.out.println("Red is my favorite");
+        }
+    }
+
     // Must delegate a non-canonical constructor
     public RecordDemo(String color, String type) {
         this(color); // specific rule about records: any constructor that doesn't exactly match the record's declared components must call default record constructor using this()

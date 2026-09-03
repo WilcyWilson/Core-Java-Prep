@@ -2,11 +2,12 @@ package leetcodeprep.slidingwindow;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingCharacters {
 
-    public int lengthOfLongestSubstringforEach(String s) {
+    public int lengthOfLongestSubstringForEach(String s) {
         Set<Character> substring = new HashSet<>();
         int longestSubstring = 0;
         int left = 0;
@@ -21,7 +22,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
     public int lengthOfLongestSubstringHashMap(String s) {
-        HashMap<Character, Integer> seen = new HashMap<>();
+        Map<Character, Integer> seen = new HashMap<>();
         int maximumLength = 0;
         int start = 0;
 
@@ -53,14 +54,14 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
         System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringHashMap("cdcda")); // 3
 
-        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringforEach("1R1T7")); // 4
+        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringForEach("1R1T7")); // 4
 
-        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringforEach("!S``PW")); //3
+        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringForEach("!S``PW")); //3
 
 
-        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringforEach("abcabcbb")); //3
-        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringforEach("bbbbb")); //1
-        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringforEach("pwwkew"));//3
+        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringForEach("abcabcbb")); //3
+        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringForEach("bbbbb")); //1
+        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstringForEach("pwwkew"));//3
 
         System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("cdcda")); // 3
 

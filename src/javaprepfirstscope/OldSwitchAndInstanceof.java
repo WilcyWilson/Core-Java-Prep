@@ -18,6 +18,14 @@ public class OldSwitchAndInstanceof {
                 len = -1;
         }
 
+        // no break required
+        day = "Tuesday";
+        int len2 = switch (day) {
+            case "Monday", "Friday", "Sunday" -> 6;
+            case "Tuesday" -> 7;
+            default -> -1;
+        };
+
         Object obj = "hello";
 
         // Compiler doesn't connect the instanceof check to the cast
@@ -28,12 +36,37 @@ public class OldSwitchAndInstanceof {
 //            Integer i = (Integer) obj;
             System.out.println(s.toUpperCase());
             System.out.println(len);
+            System.out.println(len2);
         } else if (obj instanceof Integer) {
             Integer i = (Integer) obj;
-            System.out.println(i*2);
-        } else if (obj instanceof Double){
+            System.out.println(i * 2);
+        } else if (obj instanceof Double) {
             Double d = (Double) obj;
             System.out.println(d + 10);
         }
+
+        Object obj2 = "Modern";
+        // Modern Way Pattern Matching
+        // if
+        // type check, cast, and binding in One step
+        if (obj2 instanceof String s) { // "s" is automatically the cast to String
+            System.out.println(s.toUpperCase()); // no manual cast needed
+        } else if (obj2 instanceof Integer i) {
+            System.out.println(i * 2);
+        } else if (obj2 instanceof Double d) {
+            System.out.println(d + 10);
+        }
+
+        obj2 = 5.00;
+        String result = switch (obj2) {
+            // type check, cast, and binding in One step
+            // whole switch evaluates to a value
+            case String s -> s.toUpperCase();
+            case Integer i -> String.valueOf(i * 2);
+            case Double d -> "Decimal: " + d;
+            default -> "Unknown";
+        };
+
+        System.out.println(result);
     }
 }

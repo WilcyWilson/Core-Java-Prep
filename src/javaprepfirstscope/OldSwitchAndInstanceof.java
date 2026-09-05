@@ -4,7 +4,7 @@ public class OldSwitchAndInstanceof {
     public static void main(String[] args) {
         // Old switch only accepts primitives, enums, strings
         String day = "Monday";
-        int len;
+        int len = 0;
         switch (day) {
             case "Monday": // missing break fall through case below
             case "Friday":
@@ -94,6 +94,40 @@ public class OldSwitchAndInstanceof {
         System.out.println(describe(-5));
         System.out.println(describe(null));
         System.out.println(describe(new OldSwitchAndInstanceof()));
+        System.out.println();
+
+        //Exhaustive Checking
+        enum Day {
+            MON, TUE, WED, THU, FRI, SAT, SUN
+        }
+
+        Day d = Day.SAT;
+
+        String whichDay = switch (d) {
+            // In enhanced switch compiler warns if all the possible values are not covered
+//            case MON, TUE, WED, THU -> "Workday"; 
+            case MON, TUE, WED, THU, FRI -> "Workday";
+            case SAT, SUN -> "Weekend";
+            // no default needed since all enums are handled
+        };
+
+        System.out.println(whichDay);
+        System.out.println();
+
+        d = Day.MON;
+
+        // old switch still handles enum
+        // default is not compulsory
+        // doesn't care about exhaustiveness, works even when FRI is missing
+        switch (d) {
+            case MON, TUE, WED, THU:
+                System.out.println("Workday");
+                break;
+            case SAT:
+                System.out.println("Weekend");
+                break;
+        }
+
 
     }
 

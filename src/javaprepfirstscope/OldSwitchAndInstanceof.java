@@ -34,6 +34,13 @@ public class OldSwitchAndInstanceof {
 
         Object obj = "hello";
 
+        // Old switch doesn't handle arbitrary objects
+//        switch(obj){
+//            case "hello":
+//            default:
+//                System.out.println("Unexpected");
+//        }
+
         // Compiler doesn't connect the instanceof check to the cast
         if (obj instanceof String) {
             // instanceof Checks type at runtime but still have to manually cast obj to String

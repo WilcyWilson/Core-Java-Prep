@@ -18,6 +18,9 @@ public class OldSwitchAndInstanceof {
                 len = -1;
         }
 
+        System.out.println(len);
+        System.out.println();
+
         // no break required
         day = "Tuesday";
         int len2 = switch (day) {
@@ -25,6 +28,9 @@ public class OldSwitchAndInstanceof {
             case "Tuesday" -> 7;
             default -> -1;
         };
+
+        System.out.println(len2);
+        System.out.println();
 
         Object obj = "hello";
 
@@ -35,8 +41,7 @@ public class OldSwitchAndInstanceof {
             // Cast can be wrong and can throw ClassCastException at runtime
 //            Integer i = (Integer) obj;
             System.out.println(s.toUpperCase());
-            System.out.println(len);
-            System.out.println(len2);
+            System.out.println();
         } else if (obj instanceof Integer) {
             Integer i = (Integer) obj;
             System.out.println(i * 2);
@@ -51,6 +56,7 @@ public class OldSwitchAndInstanceof {
         // type check, cast, and binding in One step
         if (obj2 instanceof String s) { // "s" is automatically the cast to String
             System.out.println(s.toUpperCase()); // no manual cast needed
+            System.out.println();
         } else if (obj2 instanceof Integer i) {
             System.out.println(i * 2);
         } else if (obj2 instanceof Double d) {
@@ -68,5 +74,40 @@ public class OldSwitchAndInstanceof {
         };
 
         System.out.println(result);
+        System.out.println();
+        int n = 5;
+        String s = switch (n) {
+            case 1, 2 -> "Small";
+            case 3, 4 -> "Medium";
+            case 5 -> {
+                System.out.println("Printing Large");
+                yield "Large"; // yield is return for switch
+            }
+            default -> "Unknown";
+        };
+        System.out.println(s);
+        System.out.println();
+
+        System.out.println(describe(5));
+        System.out.println(describe("Spiderman"));
+        System.out.println(describe(150));
+        System.out.println(describe(-5));
+        System.out.println(describe(null));
+        System.out.println(describe(new OldSwitchAndInstanceof()));
+
+    }
+
+    // Guard patterns (type + condition without if) Java 21+
+    static String describe(Object obj) {
+        return switch (obj) {
+            case String s when s.length() > 5 -> "Long String: " + s;
+            case String s -> "Short String: " + s;
+            case Integer i when i > 100 -> "Big number: " + i;
+            case Integer i when i < 0 -> "Negative number:" + i;
+            case Integer i -> "Small number: " + i;
+            case null ->
+                    "Null"; // null handling (Traditional switch throws null pointer exception if obj is null. No way to handle null)
+            default -> "Unknown";
+        };
     }
 }

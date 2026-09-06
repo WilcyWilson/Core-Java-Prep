@@ -36,8 +36,15 @@ public class SealedInterfacePatternMatching {
 //            case Rectangle r -> r.printArea();
 //        }
         return switch (shape) {
+            case Circle2(double radius) when radius <= 0 -> throw new IllegalArgumentException("Negative radius");
             case Circle2(double radius) -> Math.PI * radius * radius;
+
+            case Rectangle(double width, double height) when width <= 0 || height <= 0 ->
+                    throw new IllegalArgumentException("Negative width or height");
+
             case Rectangle(double width, double height) -> width * height;
+
+            case Square2(double side) when side <= 0 -> throw new IllegalArgumentException("Negative side");
             case Square2(double side) -> side * side;
             // No default type needed since the compiler knows these are all the permitted types
         };
@@ -47,5 +54,7 @@ public class SealedInterfacePatternMatching {
         System.out.println(new SealedInterfacePatternMatching().area(new Circle2(5.5)));
         System.out.println(new SealedInterfacePatternMatching().area(new Rectangle(6.6, 2.5)));
         System.out.println(new SealedInterfacePatternMatching().area(new Square2(4.5)));
+
+        System.out.println(new SealedInterfacePatternMatching().area(new Square2(-5.00)));
     }
 }

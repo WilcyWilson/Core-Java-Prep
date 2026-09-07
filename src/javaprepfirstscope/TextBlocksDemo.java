@@ -19,9 +19,9 @@ public class TextBlocksDemo {
         System.out.println(json2);
 
         String indented = """
-                line1
-                line2
-            """; //Moving the closing delimiter preserves the leading white spaces
+                    line1
+                    line2
+                """; //Moving the closing delimiter preserves the leading white spaces
         // Result: "    line 1\n    line 2"  (4 spaces preserved)
         System.out.println(indented);
 
@@ -39,5 +39,15 @@ public class TextBlocksDemo {
                 new line breaking these line.
                 """;
         System.out.println(longline);
+
+        // Text block work with String.formatted()
+        String template = """
+                Name: %s
+                Age: %d
+                City: %s
+                """;
+        String result = template.formatted("Bruce", 40, "Gotham");
+
+        System.out.println(result);
     }
 }

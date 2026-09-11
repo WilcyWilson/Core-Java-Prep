@@ -106,7 +106,28 @@ public class ValidAnagram {
         return true;
     }
 
+    public static boolean isAnagram(String s, String t){
+        if (s.length() == t.length()){
+            int[] count = new int[26];
+            char[] sCharArray = s.toCharArray();
+            char[] tCharArray = t.toCharArray();
+
+            for(char c: sCharArray) count[c - 'a']++;
+            for(char c: tCharArray) if (--count[c - 'a'] < 0) return false;
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
+        System.out.println(isAnagram("anagram", "nagaram"));
+        System.out.println(isAnagram("spider", "redspid"));
+
+        // Know the difference, fails when count[c - 'a']-- and
+        // will result in true for below because count['c'] < 0 is checked first
+        // 0 < 0 false. if statement skipped. After that the count['c'] is decremented
+        System.out.println(isAnagram("rat", "car"));
+
         System.out.println(new ValidAnagram().isAnagramLoops("anagram", "nagaram"));
         System.out.println(new ValidAnagram().isAnagramLoops("spider", "redspid"));
         System.out.println(new ValidAnagram().isAnagramLoops("spider", "spider"));

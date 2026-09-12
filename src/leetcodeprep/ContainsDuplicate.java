@@ -37,7 +37,7 @@ public class ContainsDuplicate {
         return false;
     }
 
-    // Accepted
+    // Accepted - Optimal
     public boolean containsDuplicateHashSet(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -57,6 +57,21 @@ public class ContainsDuplicate {
             } else {
                 return true;
             }
+        }
+        return false;
+    }
+
+    // Two pointer with Sort
+    public static boolean containsDuplicate(int[] nums){
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right){
+            if (nums[left] == nums[left + 1] || nums[right] == nums[right -1] ){
+                return true;
+            }
+            left++;
+            right--;
         }
         return false;
     }
@@ -83,6 +98,11 @@ public class ContainsDuplicate {
         System.out.println(new ContainsDuplicate().containsDuplicateHashSet(nums));
         System.out.println(new ContainsDuplicate().containsDuplicateHashSet(nums2));
         System.out.println(new ContainsDuplicate().containsDuplicateHashSet(nums3));
+
+        System.out.println();
+        System.out.println(containsDuplicate(nums));
+        System.out.println(containsDuplicate(nums2));
+        System.out.println(containsDuplicate(nums3));
     }
 
 }

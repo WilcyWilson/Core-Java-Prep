@@ -2,6 +2,7 @@ package javaprepfirstscope;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.LongStream;
 
 public class PlatformThreads {
@@ -9,10 +10,12 @@ public class PlatformThreads {
 //        try {
 //        virtualThreadDemo();
 //         platformThreadOutOfMemoryDemo();
-        platformThreadMaxCPUUtilization();
+//        platformThreadMaxCPUUtilization();
 //        virtualThreadCreationOption1();
 //        virtualThreadCreationOption2();
 //        virtualThreadCreationOption3();
+
+        cpuPinningVirtualThread();
 
         // always JVM Warmup and JIT Compilation Tax
         // JVM interprets the bytecode line by line on first LongStream
@@ -198,4 +201,28 @@ public class PlatformThreads {
             throw new RuntimeException(e);
         }
     }
+
+
+    // CPU Pinning where virtual thread cannot unmount from its carrier thread
+    // This is bad
+    public static void cpuPinningVirtualThread() {
+        try {
+            Thread.startVirtualThread(() -> {
+                synchronized (PlatformThreads.class) { // Virtual thread is pinned
+                    System.out.println("Synchronized Virtual Thread"); // Blocks carrier thread too
+                } // no other virtual thread can use the carrier thread now
+            }).join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+//    public static void usingReentrantLockVirtualThread(){
+//        ReentrantLock reentrantLock = new ReentrantLock();
+//        Thread.startVirtualThread(() -> {
+//            lock
+//        })
+//    }
+
+
 }

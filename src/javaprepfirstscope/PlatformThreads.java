@@ -1,12 +1,15 @@
 package javaprepfirstscope;
 
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.LongStream;
 
 public class PlatformThreads {
     public static void main(String[] args) throws InterruptedException {
+//        try {
 //        virtualThreadDemo();
-//         platformThreadDemo();
+//         platformThreadOutOfMemoryDemo();
+        platformThreadMaxCPUUtilization();
 //        virtualThreadCreationOption1();
 //        virtualThreadCreationOption2();
 //        virtualThreadCreationOption3();
@@ -14,29 +17,73 @@ public class PlatformThreads {
         // always JVM Warmup and JIT Compilation Tax
         // JVM interprets the bytecode line by line on first LongStream
         // Micro benchmarking like this is frowned upon, but I'm just using it to test
-        virtualThreadCPUBoundTest();
-        platformThreadWithParallelProcessingForCPUIntensiveWork();
-        directParallelProcessingForCPUIntensiveWork();
-        platformThreadTest();
-        Thread.sleep(200);
-        System.out.println();
-        virtualThreadCPUBoundTest();
-        platformThreadWithParallelProcessingForCPUIntensiveWork();
-        directParallelProcessingForCPUIntensiveWork();
-        platformThreadTest();
+//            virtualThreadCPUBoundTest();
+//            platformThreadWithParallelProcessingForCPUIntensiveWork();
+//            directParallelProcessingForCPUIntensiveWork();
+//            platformThreadTest();
+//            Thread.sleep(200);
+//            System.out.println();
+//            virtualThreadCPUBoundTest();
+//            platformThreadWithParallelProcessingForCPUIntensiveWork();
+//            directParallelProcessingForCPUIntensiveWork();
+//            platformThreadTest();
+//        }
+//        catch (InterruptedException e) {
+//            throw new RuntimeException();
+//        }
     }
 
-    public static void platformThreadDemo() {
+    public static void platformThreadOutOfMemoryDemo() {
         for (int i = 0; i < 1_000_000; i++) { // Java 7 readability cosmetic 1_000_000
-            Thread t = new Thread(() ->
-                    System.out.println("running thread")
+            Thread t = new Thread(() -> {
+                System.out.println("Running Thread" + Thread.currentThread());
+                try {
+                    Thread.sleep(60000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
             );
             t.start();
-            try {
-                t.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+
+            // Make the current thread pause and wait right here until thread t finishes its work.
+            // Calling t.join() in the for loop means we are telling the main thread to stop and wait for
+            // the newly spawned thread to finish its printing task before the loop can continue to the next iteration
+//            t.join();
+        }
+    }
+
+    public static void platformThreadMaxCPUUtilization() {
+        int cores = Runtime
+                .getRuntime()
+                .availableProcessors();
+        for (int i = 0; i < cores; i++) { // Java 7 readability cosmetic 1_000_000
+            Thread t = new Thread(() -> {
+                double dummyVariable;
+                while (true) {
+                    // System.out.println is synchronized, slow I/O operation.
+                    // printing to console yield the CPU to go to sleep
+                    // Math.pow runs almost instantly
+                    // CPU spends significant portion of time managing the traffic jam instead of
+                    // executing the math instruction
+//                    System.out.println("Running Thread" + Thread.currentThread());
+                    dummyVariable = Math.pow(
+                            ThreadLocalRandom
+                                    .current()
+                                    .nextInt(5, 100),
+                            ThreadLocalRandom
+                                    .current()
+                                    .nextInt(5, 100));
+//                    System.out.println(dummyVariable);
+                }
             }
+            );
+            t.start();
+
+            // Make the current thread pause and wait right here until thread t finishes its work.
+            // Calling t.join() in the for loop means we are telling the main thread to stop and wait for
+            // the newly spawned thread to finish its printing task before the loop can continue to the next iteration
+//            t.join();
         }
     }
 
@@ -52,13 +99,9 @@ public class PlatformThreads {
     // Creating Virtual Threads
     // startVirtualThread is convenience method which immediately starts the thread
     // Option 1
-    public static void virtualThreadCreationOption1() {
+    public static void virtualThreadCreationOption1() throws InterruptedException {
         Thread v = Thread.startVirtualThread(() -> System.out.println("Running on virtual thread: " + Thread.currentThread()));
-        try {
-            v.join(); // main waits until v finishes
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        v.join(); // main waits until v finishes
     }
 
     // Thread.ofVirtual()

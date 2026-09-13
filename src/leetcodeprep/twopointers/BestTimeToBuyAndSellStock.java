@@ -1,4 +1,4 @@
-package leetcodeprep;
+package leetcodeprep.twopointers;
 
 public class BestTimeToBuyAndSellStock {
 

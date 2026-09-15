@@ -14,8 +14,10 @@ public class PlatformThreads {
 //        virtualThreadCreationOption1();
 //        virtualThreadCreationOption2();
 //        virtualThreadCreationOption3();
+        Thread.sleep(3000);
 
         cpuPinningVirtualThread();
+        usingReentrantLockVirtualThread();
 
         // always JVM Warmup and JIT Compilation Tax
         // JVM interprets the bytecode line by line on first LongStream
@@ -205,24 +207,41 @@ public class PlatformThreads {
 
     // CPU Pinning where virtual thread cannot unmount from its carrier thread
     // This is bad
+    // -XX:StartFlightRecording=jdk.VirtualThreadPinned#threshold=0ms,filename=recording.jfr in VM in config to check CPU Pinning in JFR
     public static void cpuPinningVirtualThread() {
         try {
             Thread.startVirtualThread(() -> {
                 synchronized (PlatformThreads.class) { // Virtual thread is pinned
                     System.out.println("Synchronized Virtual Thread"); // Blocks carrier thread too
-                } // no other virtual thread can use the carrier thread now
+                    try {
+                        // This blocking call inside synchronized is what forces JDK 21 to pin carrier thread
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } // no other virtual thread can use the carrier thread now until this
             }).join();
+
+            // Giving JFR extra moment to capture and write the data
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-//    public static void usingReentrantLockVirtualThread(){
-//        ReentrantLock reentrantLock = new ReentrantLock();
-//        Thread.startVirtualThread(() -> {
-//            lock
-//        })
-//    }
+    // ReentrantLock is Virtual Thread friendly and works with Platform Threads too
+    // JVM knows how to unmount ReentrantLock
+    public static void usingReentrantLockVirtualThread() throws InterruptedException {
+        ReentrantLock reentrantLock = new ReentrantLock();
+        Thread.startVirtualThread(() -> {
+            reentrantLock.lock();       // Virtual Thread can unmount here
+            try {
+                System.out.println("Blocked Carrier Thread is free"); // Blocks but the carrier thread is free
+            } finally {
+                reentrantLock.unlock();
+            }
+        }).join();
+    }
 
 
 }

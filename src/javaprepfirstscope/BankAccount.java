@@ -15,11 +15,23 @@ public class BankAccount {
         // balance = 0 + 100  ThreadTwo/ThreadOne calculates
         // balance = 0 + 100 ThreadOne/Thread wakes up from sleep and has no idea that value of balance has changed
         balance = currentBalance + amount;
-        System.out.println(balance + " = " + Thread.currentThread().getName());
+        System.out.println(balance + " = " + Thread
+                .currentThread()
+                .getName());
     }
 
-    public void withdraw(double amount) {
-        balance = balance - amount;
+    public synchronized void depositSynchronized(double amount) {
+        double currentBalance = balance;
+        try {
+            Thread.sleep(10); // The OS won't Swap to Thread Two/Thread One in this case since this is synchronized
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        balance = currentBalance + amount;
+        System.out.println(balance + " = " + Thread
+                .currentThread()
+                .getName());
     }
 
     public double getBalance() {
@@ -30,11 +42,10 @@ public class BankAccount {
         BankAccount bankAccount = new BankAccount();
         Runnable runnable = () -> {
             double deposit = 100.00;
-            double withdraw = 200.00;
-            System.out.println(Thread.currentThread().getName() + " deposited " + deposit);
+            System.out.println(Thread
+                    .currentThread()
+                    .getName() + " deposited " + deposit);
             bankAccount.deposit(deposit);
-//            bankAccount.withdraw(withdraw);
-//            System.out.println(Thread.currentThread().getName() + " withdraw " + withdraw);
         };
         Thread t1 = new Thread(runnable, "ThreadOne");
         Thread t2 = new Thread(runnable, "ThreadTwo");
@@ -43,5 +54,23 @@ public class BankAccount {
         t1.join();
         t2.join();
         System.out.println(bankAccount.getBalance());
+
+        System.out.println();
+        System.out.println("Synchronized:");
+        BankAccount bankAccount2 = new BankAccount();
+        Runnable runnableSynchronized = () -> {
+            double deposit = 100.00;
+            System.out.println(Thread
+                    .currentThread()
+                    .getName() + " deposited " + deposit);
+            bankAccount2.depositSynchronized(deposit);
+        };
+        Thread t1S = new Thread(runnableSynchronized, "ThreadOneS");
+        Thread t2S = new Thread(runnableSynchronized, "ThreadTwoS");
+        t1S.start();
+        t2S.start();
+        t1S.join();
+        t2S.join();
+        System.out.println(bankAccount2.getBalance());
     }
 }

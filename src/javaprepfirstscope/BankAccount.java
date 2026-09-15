@@ -3,6 +3,8 @@ package javaprepfirstscope;
 public class BankAccount {
     private double balance;
 
+    private final Object depositLock = new Object();
+
     public void deposit(double amount) {
         double currentBalance = balance;
         try {
@@ -20,18 +22,20 @@ public class BankAccount {
                 .getName());
     }
 
-    public synchronized void depositSynchronized(double amount) {
-        double currentBalance = balance;
-        try {
-            Thread.sleep(10); // The OS won't Swap to Thread Two/Thread One in this case since this is synchronized
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+    public void depositSynchronized(double amount) {
+        synchronized (depositLock) {
+            double currentBalance = balance;
+            try {
+                Thread.sleep(10); // The OS won't Swap to Thread Two/Thread One in this case since this is synchronized
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
-        balance = currentBalance + amount;
-        System.out.println(balance + " = " + Thread
-                .currentThread()
-                .getName());
+            balance = currentBalance + amount;
+            System.out.println(balance + " = " + Thread
+                    .currentThread()
+                    .getName());
+        }
     }
 
     public double getBalance() {
@@ -39,6 +43,7 @@ public class BankAccount {
     }
 
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("Not Synchronized:");
         BankAccount bankAccount = new BankAccount();
         Runnable runnable = () -> {
             double deposit = 100.00;

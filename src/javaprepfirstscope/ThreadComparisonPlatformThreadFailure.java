@@ -42,7 +42,7 @@ public class ThreadComparisonPlatformThreadFailure {
 
     private static void simulateWork() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(300000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

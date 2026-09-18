@@ -17,7 +17,7 @@ public class LockHiJackDemo {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    void main() throws InterruptedException {
         LockHiJackDemo bankAccount = new LockHiJackDemo();
 
         System.out.println("-- Scenario 1 - Attacking the vulnerable method --");

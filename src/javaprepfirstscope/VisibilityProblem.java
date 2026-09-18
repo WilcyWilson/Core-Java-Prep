@@ -20,7 +20,7 @@ public class VisibilityProblem {
         System.out.println("Thread One Work Stopped");
     }
 
-    void main() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         VisibilityProblem sharedInstance = new VisibilityProblem();
 
         // Thread One executes doWork() and gets stuck in while loop

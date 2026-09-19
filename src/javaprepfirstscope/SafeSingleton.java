@@ -1,5 +1,8 @@
 package javaprepfirstscope;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class SafeSingleton {
     // Prevent instruction reordering
     private static volatile SafeSingleton instance;
@@ -14,5 +17,24 @@ public class SafeSingleton {
             }
         }
         return instance;
+    }
+
+    static void main() {
+        int numberOfPlatformThreads = 100;
+
+        System.out.println("Using Platform Threads");
+        try (ExecutorService executorServicePlatform = Executors.newFixedThreadPool(numberOfPlatformThreads)) {
+            for (int i = 0; i < numberOfPlatformThreads; i++) {
+                executorServicePlatform.submit(() -> System.out.println(getInstance().hashCode()));
+            }
+        }
+
+        System.out.println("\n\nUsing Virtual Threads");
+        try (ExecutorService executorServiceVirtual = Executors.newVirtualThreadPerTaskExecutor()) {
+            for (int i = 0; i < numberOfPlatformThreads; i++) {
+                executorServiceVirtual.submit(() -> System.out.println(getInstance().hashCode()));
+            }
+        }
+
     }
 }

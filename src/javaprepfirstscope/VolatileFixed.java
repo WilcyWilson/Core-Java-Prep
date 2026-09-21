@@ -6,7 +6,7 @@ public class VolatileFixed {
 
     void main() throws InterruptedException {
         new Thread(() -> {
-            // System.out.println(number); // Flipping the order hear will result in number = 0
+            // System.out.println(number); // Flipping the order here will result in number = 0
             while (!ready) { // volatile ready establishes happens before edge
                 Thread.yield();
             }

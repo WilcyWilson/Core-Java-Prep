@@ -2,6 +2,7 @@ package javaprepfirstscope;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
 
 public class ThreadSafeCollectionSafePublication {
     private final Map<String, Object> map = new ConcurrentHashMap<>();
@@ -28,10 +29,24 @@ public class ThreadSafeCollectionSafePublication {
     // uninitialized fields, or a stale cached null caused by memory reordering
     static void main() throws InterruptedException {
         ThreadSafeCollectionSafePublication threadSafeCollectionSafePublication = new ThreadSafeCollectionSafePublication();
-        Thread t = new Thread(threadSafeCollectionSafePublication::publishObject);
-        Thread t2 = new Thread(() ->
-                System.out.println(threadSafeCollectionSafePublication.retrieveObject()
-                )
+        CountDownLatch latch = new CountDownLatch(1); // Thread Coordination
+        // One time gate. Forces one or more threads to wait until other threads complete an event
+
+        Thread t = new Thread(() -> {
+            threadSafeCollectionSafePublication.publishObject();
+            latch.countDown(); // Signals that the publication is complete
+            // Thread pauses execution and waits since the count i greater than 0.
+        });
+        Thread t2 = new Thread(() -> {
+            try {
+                // When thread 1 completes its work, it calls latch.countDown(), counter decrements to 0
+                // All threads waiting at latch.await() wakes up instantly and resume execution
+                latch.await();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println(threadSafeCollectionSafePublication.retrieveObject());
+        }
         );
         t.start();
         t2.start();

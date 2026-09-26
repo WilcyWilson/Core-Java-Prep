@@ -28,6 +28,12 @@ public class ThisEscapeFixed {
         this.id = 42;
         this.name = "Fully initialization";
 
+        // Safe construction // Safe Publication
+        // GlobalUserList.add(this); // 'this' would escape too early in this case
+        // this reference of the object must not be exposed to other threads
+        // before the constructor completes its execution
+        // do not start a new thread passing this from within the constructor
+
         System.out.println("Main Thread - Constructor completely finished");
     }
 

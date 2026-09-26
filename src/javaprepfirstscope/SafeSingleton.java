@@ -12,6 +12,8 @@ public class SafeSingleton {
         if (instance == null) { // null checking
             synchronized (internalLock) {
                 if (instance == null) { // second check with locking
+                    // Volatile write ensures the object is fully built
+                    // before 'instance' points to it.
                     instance = new SafeSingleton(); // volatile prevents reordering
                 }
             }

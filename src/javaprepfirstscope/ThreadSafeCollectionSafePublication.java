@@ -68,7 +68,7 @@ public class ThreadSafeCollectionSafePublication {
                 throw new RuntimeException(e);
             }
             System.out.println("Key1" + threadSafeCollectionSafePublication.retrieveObject());
-            System.out.println("Key1" + threadSafeCollectionSafePublication.retrieveObjectIfAbsent());
+            System.out.println("Key2" + threadSafeCollectionSafePublication.retrieveObjectIfAbsent());
         }
         );
         t.start();

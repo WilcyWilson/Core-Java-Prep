@@ -28,6 +28,42 @@
 <img width="1296" height="336" alt="image" src="https://github.com/user-attachments/assets/4004a05a-abfb-4a3c-b924-3662a79892c7" />
 </details>
 
+#### Where is a Boolean object stored in memory?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+     On the heap.
+</details>
+
+#### What is the default value of a boolean class field?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    false
+</details>
+
+#### What is the default value of a Boolean class field?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    null
+</details>
+
+#### Can a primitive boolean store a null value?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    No.
+</details>
+
 # Java Concurrency in Practice
 One of the challenges of developing concurrent programs in Java is the mismatch between the concurrency
 features offered by the platform and how developers need to think about concurrency in their programs.

@@ -64,6 +64,60 @@
     No.
 </details>
 
+#### Why is Boolean used instead of boolean in Java Collections?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Java Generics do not support primitive data types.
+</details>
+
+#### What is the term for automatically converting a boolean to a Boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Autoboxing.
+</details>
+
+#### What is the term for automatically converting a Boolean to a boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Unboxing.
+</details>
+
+#### Which method does the compiler inject during autoboxing of a boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Boolean.valueOf()
+</details>
+
+#### Which method does the compiler inject during unboxing of a Boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    booleanValue()
+</details>
+
+#### What happens at runtime when Java attempts to unbox a null Boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A NullPointerException is thrown.
+</details>
+
 # Java Concurrency in Practice
 One of the challenges of developing concurrent programs in Java is the mismatch between the concurrency
 features offered by the platform and how developers need to think about concurrency in their programs.

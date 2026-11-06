@@ -118,6 +118,60 @@
     A NullPointerException is thrown.
 </details>
 
+#### Why is boolean preferred over Boolean for high-performance loops?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    To avoid the memory overhead and GC pressure caused by creating wrapper objects.
+</details>
+
+#### What is the null-safe way to check if a Boolean variable is true?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Boolean.TRUE.equals(variable)
+</details>
+
+#### How many bits of information does a boolean logically represent?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    1 bit.
+</details>
+
+#### Why does Boolean have more memory overhead than boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It includes an object header in addition to the primitive value.
+</details>
+
+#### What is the short-circuit behavior of the && operator?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It skips the right-hand side if the left-hand side is false.
+</details>
+
+#### What is the short-circuit behavior of the || operator?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It skips the right-hand side if the left-hand side is true.
+</details>
+
 # Java Concurrency in Practice
 One of the challenges of developing concurrent programs in Java is the mismatch between the concurrency
 features offered by the platform and how developers need to think about concurrency in their programs.

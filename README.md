@@ -172,6 +172,69 @@
     It skips the right-hand side if the left-hand side is true.
 </details>
 
+#### How does the & operator differ from && when used with booleans?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    & evaluates both sides regardless of the first value (no short-circuiting).
+</details>
+
+#### How does the | operator differ from || when used with booleans?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    | evaluates both sides regardless of the first value (no short-circuiting).
+</details>
+
+#### What is the result of true ^ true in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    false
+</details>
+
+#### Which operator returns true only if the two boolean inputs are different?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The XOR operator (^).
+</details>
+
+#### What is the result of the Logical NOT (!) operator applied to true?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    false
+</details>
+
+#### Why should .equals() be used instead of == to compare two Boolean objects?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    == compares memory references, while .equals() compares logical values.
+</details>
+
+#### What is the fundamental difference between boolean and Boolean in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    boolean is a primitive data type, while Boolean is an object wrapper class.
+</details>
+
 # Java Concurrency in Practice
 One of the challenges of developing concurrent programs in Java is the mismatch between the concurrency
 features offered by the platform and how developers need to think about concurrency in their programs.

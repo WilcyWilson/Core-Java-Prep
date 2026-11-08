@@ -235,6 +235,78 @@
     boolean is a primitive data type, while Boolean is an object wrapper class.
 </details>
 
+#### What is the default value of a boolean variable when declared as a class field?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    false
+</details>
+
+#### What is the default value of a Boolean object reference when declared as a class field?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    null
+</details>
+
+#### Why does a Boolean object have higher memory overhead than a boolean primitive?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It is stored on the heap and includes an object header plus the internal primitive value.
+</details>
+
+#### Why can't you store boolean primitives directly in a List or Map?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Java Generics do not support primitives; they require **object types** like Boolean.
+</details>
+
+#### What is the result of attempting to call a method like .toString() on a boolean primitive?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A **compilation error** (primitives do not have methods).
+</details>
+
+#### How does the Java compiler perform autoboxing for a boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It automatically converts the primitive boolean to a Boolean object using Boolean.valueOf().
+</details>
+
+#### How does the Java compiler perform unboxing for a Boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It extracts the primitive value by automatically calling the booleanValue() method.
+</details>
+
+#### What is the "Hidden Danger" of unboxing a Boolean object that is null?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It throws a NullPointerException (NPE) because the compiler tries to call .booleanValue() on a null reference.
+</details>
+
 # Java Concurrency in Practice
 One of the challenges of developing concurrent programs in Java is the mismatch between the concurrency
 features offered by the platform and how developers need to think about concurrency in their programs.

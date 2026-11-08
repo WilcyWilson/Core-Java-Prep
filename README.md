@@ -1,3 +1,7 @@
+## Everything about Boolean and boolean in Java
+<details>
+
+
 #### Is boolean a primitive type or an object wrapper?
 <details>
   <summary>
@@ -305,6 +309,9 @@
   </summary>
 
     It throws a NullPointerException (NPE) because the compiler tries to call .booleanValue() on a null reference.
+</details>
+
+      
 </details>
 
 # Java Concurrency in Practice

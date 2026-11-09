@@ -311,6 +311,33 @@
     It throws a NullPointerException (NPE) because the compiler tries to call .booleanValue() on a null reference.
 </details>
 
+#### Why is using Boolean in a massive loop for mathematical/logical operations inefficient?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It causes performance degradation due to constant object creation and increased Garbage Collection pressure.
+</details>
+
+#### Why is it dangerous to rely on == when comparing wrapper objects like Integer or Boolean?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The == operator compares memory references (addresses) rather than logical values.
+</details>
+
+#### How can you safely check if a Boolean object is true without risking a NullPointerException?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Use Boolean.TRUE.equals(yourObject).
+</details>
+
       
 </details>
 

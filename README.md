@@ -1,6 +1,10 @@
 ## Everything about Boolean and boolean in Java
 <details>
 
+<summary>
+  <h2>Click to reveal.</h2>
+</summary>
+
 
 #### Is boolean a primitive type or an object wrapper?
 <details>
@@ -405,7 +409,10 @@
 
 ## Java Access Modifiers and Non-Access Modifiers
 <details>
-
+  
+<summary>
+  <h2>Click to reveal.</h2>
+</summary>
 
 #### What is an object header in Java?
 <details>

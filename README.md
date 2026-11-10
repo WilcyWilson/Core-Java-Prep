@@ -338,7 +338,93 @@
     Use Boolean.TRUE.equals(yourObject).
 </details>
 
-      
+#### How does the short-circuit AND operator (&&) behave if the left operand is false?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It skips evaluation of the right operand because the overall result is guaranteed to be false.
+</details>
+
+#### How does the short-circuit OR operator (||) behave if the left operand is true?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It skips evaluation of the right operand because the overall result is guaranteed to be true.
+</details>
+
+#### In what specific scenario is a short-circuit AND (&&) commonly used to prevent crashes?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    To perform a null check before accessing a member: if (user != null && user.isActive()).
+</details>
+
+#### What is the difference between the logical AND (&&) and the bitwise AND (&) when used on booleans?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    && is short-circuiting, while & forces evaluation of both sides regardless of the first result.
+</details>
+
+#### What is the logical result of the Exclusive OR (^) operator?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It returns true only if the two inputs are different (one true, one false).
+</details>
+
+#### What is the result of the expression true ^ true in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    false
+</details>
+
+#### What does the logical NOT (!) operator do to a boolean value?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It flips the value (e.g., !true becomes false).
+</details>
+   
+</details>
+
+## Java Access Modifiers and Non-Access Modifiers
+<details>
+
+
+#### What is an object header in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    An object header in Java is a small block of metadata stored at the beginning of every object in heap memory. It serves as the runtime identity card for the object, allowing the Java Virtual Machine (JVM) to perform memory management, garbage collection, and synchronization.
+</details>
+
+#### In the context of Java memory, where is a static field stored?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    In the Metaspace (part of the class metadata), rather than within individual heap objects.
+</details>
+
 </details>
 
 # Java Concurrency in Practice

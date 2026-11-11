@@ -432,6 +432,66 @@
     In the Metaspace (part of the class metadata), rather than within individual heap objects.
 </details>
 
+#### How many copies of a static field exist if a class has 1,000 instantiated objects?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Exactly one copy, shared by all instances.
+</details>
+
+#### What is the primary limitation of a static method regarding instance members?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It cannot access instance fields or instance methods because it lacks a this parameter.
+</details>
+
+#### Why can a static field be accessed even if no objects of that class have been created?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Because static members belong to the class itself and are initialized when the class is loaded.
+</details>
+
+#### What is the effect of the final keyword on a variable?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It ensures the variable can be assigned only once; its value becomes a constant.
+
+  <img width="1502" height="666" alt="image" src="https://github.com/user-attachments/assets/6b3bd749-17d5-4b52-9b33-772c8e37946b" />
+</details>
+
+#### When must a final instance field be initialized?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    By the end of every constructor execution.
+
+  <img width="1504" height="1010" alt="image" src="https://github.com/user-attachments/assets/ebb8a9fe-ad98-4986-8eb0-de043cb80fe0" />
+
+</details>
+
+#### How does marking a method as final affect the inheritance hierarchy?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It prevents any subclass from overriding that specific method.
+
+</details>
+
 </details>
 
 # Java Concurrency in Practice

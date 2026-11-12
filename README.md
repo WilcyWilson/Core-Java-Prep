@@ -492,6 +492,145 @@
 
 </details>
 
+#### What is the architectural impact of declaring a class as final?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The class cannot be extended (subclassed), ensuring its behavior cannot be altered through inheritance.
+
+</details>
+
+#### Which class in Java is final to ensure its immutability and security cannot be compromised?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The java.lang.String class.
+
+</details>
+
+#### In a final class, are the instance fields automatically final?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    No; only the methods are effectively final. The fields must be explicitly marked final to be constant.
+
+</details>
+
+#### What is the scope of a member with default (no modifier) access?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It is accessible only by classes within the same package.
+
+</details>
+
+#### What is the specific visibility of a protected member?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It is accessible within the same package and by subclasses in different packages.
+
+  <img width="2106" height="860" alt="image" src="https://github.com/user-attachments/assets/102529fe-639d-4055-b0e2-48f70e5f0795" />
+
+
+</details>
+
+#### Why is it a best practice to keep instance fields private?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    To maintain encapsulation, allowing internal data representation to change without breaking external code.
+
+</details>
+
+#### What is the role of the java.lang.Object class in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It is the ultimate ancestor (root) of all classes in the Java hierarchy.
+
+</details>
+
+#### What is required of a concrete subclass that extends an abstract class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It must provide implementations for all inherited abstract methods.
+
+  <img width="1852" height="700" alt="image" src="https://github.com/user-attachments/assets/950d37b0-962a-479e-ad71-3ddaf699bfb8" />
+
+</details>
+
+#### How does a sealed class differ from a standard class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A sealed class explicitly defines which specific subclasses are permitted to extend it.
+
+  <img width="1678" height="572" alt="image" src="https://github.com/user-attachments/assets/252c56e0-8f4a-48e3-ad8c-8933356fc9c6" />
+
+  <img width="1502" height="1048" alt="image" src="https://github.com/user-attachments/assets/f7d75b47-382b-45a8-a6b8-0bb6afc52090" />
+
+</details>
+
+#### What is the purpose of the non-sealed keyword?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It allows a permitted subclass of a sealed class to be further extended by any other class.
+
+  <img width="1546" height="1022" alt="image" src="https://github.com/user-attachments/assets/cb5449af-9278-4122-b1fa-b0591fac3dcd" />
+
+  <img width="1248" height="624" alt="image" src="https://github.com/user-attachments/assets/a3d8ded3-bdf9-4ef0-8246-e02a5d02cf97" />
+
+  <img width="1790" height="628" alt="image" src="https://github.com/user-attachments/assets/3ae8fe4e-b361-4461-9438-6dbcc97ab78e" />
+
+  <img width="1342" height="1066" alt="image" src="https://github.com/user-attachments/assets/b47ab7a1-915c-41db-840f-608cd5b58536" />
+
+  <img width="2244" height="848" alt="image" src="https://github.com/user-attachments/assets/97f340b0-eac7-4e81-9c0e-93bb02b4ecd8" />
+
+</details>
+
+#### What is the difference between extends and implements?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    extends is used for class inheritance (IS-A); implements is used to conform to an interface's contract.
+
+</details>
+
+#### What does the volatile keyword guarantee in a multi-threaded environment?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It ensures that changes to a variable are visible to all threads immediately by preventing local caching.
+
+</details>
+
 </details>
 
 # Java Concurrency in Practice

@@ -631,6 +631,102 @@
 
 </details>
 
+#### What is the primary function of the synchronized keyword on a method?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It ensures mutual exclusion by requiring a thread to acquire the object's intrinsic lock before execution.
+
+</details>
+
+#### How do you prevent a specific field from being included during object serialization?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    By marking the field with the transient keyword.
+
+</details>
+
+#### What does the native keyword indicate about a method's implementation?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The method is implemented in a platform-dependent language like C or C++ and is defined outside the JVM.
+
+   <img width="1490" height="1084" alt="image" src="https://github.com/user-attachments/assets/d030fe96-fe19-431e-8105-7f6db352ac42" />
+
+
+</details>
+
+#### Why can native methods like System.setOut modify final fields?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Native methods can bypass standard Java access control and language-level safety mechanisms. Native methods can modify final fields because they bypass the Java Virtual Machine (JVM) compile-time and runtime access checks by operating directly on raw memory. When you call a native method like System.setOut, the operation is executed via native code (usually C or C++). At this native layer, the concepts of Java language modifiers like final or private do not exist.
+
+</details>
+
+#### What is the function of static import?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It allows access to static members (fields/methods) without qualifying them with their class name.
+
+  <img width="1528" height="1024" alt="image" src="https://github.com/user-attachments/assets/391b8f96-f8b4-496c-be7c-6f5187502c4d" />
+
+
+</details>
+
+#### In terms of OOP design, why would you make a method final?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    To lock its semantics and ensure subclasses cannot change its fundamental behavior.
+
+</details>
+
+#### What is the core definition of encapsulation in OOP?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Bundling data (fields) and the methods that operate on that data into a single unit (class).
+
+</details>
+
+#### What Java mechanism is primarily used to implement encapsulation?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    What Java mechanism is primarily used to implement encapsulation?
+
+</details>
+
+#### In the context of encapsulation, what is "Data Hiding"?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Declaring fields as private to prevent direct external access or modification.
+
+</details>
+
 </details>
 
 # Java Concurrency in Practice

@@ -727,6 +727,55 @@
 
 </details>
 
+#### How does encapsulation provide controlled access to private fields?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Through public getter and setter methods.
+
+</details>
+
+#### How does encapsulation enable data validation during assignment?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Logic inside a setter method can check for invalid inputs before updating the field.
+
+</details>
+
+#### How does encapsulation improve maintainability when changing internal logic?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It allows internal implementation changes without breaking external code that relies on the public API.
+
+</details>
+
+#### In an encapsulated BankAccount class, why is the balance field private?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    To ensure the balance is only modified through validated methods like deposit() or withdraw().
+
+</details>
+
+#### Which access modifier is used to hide a field so it is accessible only within its own class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    private.
+</details>
+
 </details>
 
 # Java Concurrency in Practice

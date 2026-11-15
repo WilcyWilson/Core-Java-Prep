@@ -776,6 +776,119 @@
     private.
 </details>
 
+#### What is the primary benefit of making a field private and providing only a getter (no setter)?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It makes the field read-only to external classes.
+</details>
+
+#### Why does encapsulation enhance "Data Security"?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It prevents unauthorized or accidental corruption of an object's internal state.
+</details>
+
+#### What is a static block in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A block of code marked with the static keyword that initializes class-level members.
+</details>
+
+#### What is a static block in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A block of code marked with the static keyword that initializes class-level members.
+    
+<img width="1460" height="1188" alt="image" src="https://github.com/user-attachments/assets/ebd8c29e-e9a0-4567-987d-aeb4842fe7fd" />
+
+<img width="1438" height="518" alt="image" src="https://github.com/user-attachments/assets/709f2cef-e444-4466-870a-214c972743d7" />
+
+</details>
+
+#### When exactly does a Java static block execute?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Automatically, when the class is first loaded into memory by the JVM.
+</details>
+
+#### How many times is a static block executed during a class's lifecycle?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Exactly once.
+</details>
+
+#### In what order do a static block and the main method execute?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The static block executes first.
+</details>
+
+#### If a class contains multiple static blocks, in what order are they executed?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Top-to-bottom, in the exact order they appear in the source code.
+</details>
+
+#### Why can a static block NOT access instance variables (non-static fields)?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Because it executes at class loading, before any object instances (and their this/super contexts) exist.
+</details>
+
+#### What is a major advantage of using a static block for field initialization over inline assignment?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Static blocks allow the use of logic (e.g., loops, conditions) and error handling (try-catch).
+</details>
+
+#### Which executes first: a static block or the class constructor?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The static block (runs at class load, whereas the constructor runs at instantiation).
+</details>
+
+#### Where is System.loadLibrary() typically placed to ensure native code is available before class use?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Inside a static block.
+</details>
+
 </details>
 
 # Java Concurrency in Practice

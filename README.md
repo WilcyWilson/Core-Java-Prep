@@ -889,6 +889,100 @@
     Inside a static block.
 </details>
 
+#### In the initialization sequence of a new object, what is the execution order of the static block, instance initializer, and constructor?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    1. Static block
+    2. Instance initializer
+    3. Constructor
+</details>
+
+
+#### Why are static blocks useful for environment setup?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    They allow loading properties or configurations before the application logic or main starts.
+</details>
+
+</details>
+
+## Java Virtual Machine (JVM)
+<details>
+
+<summary>
+  <h2>Click to reveal.</h2>
+</summary>
+
+#### What tool is used to compile human-readable .java source code into bytecode?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The javac compiler.
+</details>
+
+#### What is the file extension of a file containing Java bytecode?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    .class
+</details>
+
+#### What is the primary architectural benefit of Java's bytecode format?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It is architecture-neutral (portable), allowing the same code to run on any system with a JVM.
+</details>
+
+#### Which command-line tool is used to launch the Java Virtual Machine (JVM)?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The java command.
+</details>
+
+#### Which JVM component is responsible for locating and loading .class files into memory?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Class loaders.
+</details>
+
+#### What is the purpose of the Bytecode Verifier during the loading process?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It ensures the bytecode is safe to run and does not bypass security rules or corrupt memory.
+</details>
+
+#### How does a Java Interpreter execute bytecode?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It translates and executes bytecode one instruction at a time.
+</details>
+
+
 </details>
 
 # Java Concurrency in Practice

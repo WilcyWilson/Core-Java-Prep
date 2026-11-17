@@ -982,6 +982,69 @@
     It translates and executes bytecode one instruction at a time.
 </details>
 
+#### What is the main trade-off of using an Interpreter versus a JIT compiler?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The Interpreter starts the program quickly but is slower for repeated tasks.
+</details>
+
+#### In the context of the JVM, what is a hot spot?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A section of code (like a loop or method) that is executed frequently.
+</details>
+
+#### What is the primary function of the Just-in-Time (JIT) Compiler?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It translates frequently executed bytecode into native machine code for the specific CPU.
+</details>
+
+#### What is the goal of Tiered Compilation in modern JVMs?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    To balance startup time and long-term performance using multiple compilers (C1 and C2).
+</details>
+
+#### In Tiered Compilation, what is the specific role of the C1 compiler?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It provides quick initial compilation with simple optimizations.
+</details>
+
+#### In Tiered Compilation, what is the specific role of the C2 compiler?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It performs aggressive, high-level optimizations on the most critical sections of code.
+</details>
+
+#### Why is Java generally considered more secure than C or C++ regarding memory?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The JVM uses a verifier to prevent memory corruption and provides automatic garbage collection.
+</details>
+
 
 </details>
 

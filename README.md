@@ -670,7 +670,7 @@
     Click to reveal answer.
   </summary>
 
-    Native methods can bypass standard Java access control and language-level safety mechanisms. Native methods can modify final fields because they bypass the Java Virtual Machine (JVM) compile-time and runtime access checks by operating directly on raw memory. When you call a native method like System.setOut, the operation is executed via native code (usually C or C++). At this native layer, the concepts of Java language modifiers like final or private do not exist.
+    Native methods can bypass standard Java access control and language-level safety mechanisms. Native methods can modify final fields because they bypass the  compile-time and runtime access checks by operating directly on raw memory. When you call a native method like System.setOut, the operation is executed via native code (usually C or C++). At this native layer, the concepts of Java language modifiers like final or private do not exist.
 
 </details>
 
@@ -1045,6 +1045,127 @@
     The JVM uses a verifier to prevent memory corruption and provides automatic garbage collection.
 </details>
 
+</details>
+
+## Java Method Basics
+<details>
+
+<summary>
+  <h2>Click to reveal.</h2>
+</summary>
+
+#### Does the Java programming language ever use "pass by reference"?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    No, Java always uses "pass by value".
+
+  <img width="984" height="988" alt="image" src="https://github.com/user-attachments/assets/7526fbfc-b810-4db7-8c0c-5dff2ce93d70" />
+  <img width="674" height="738" alt="image" src="https://github.com/user-attachments/assets/4a85643a-dba6-4740-ad24-57140c0b778c" />
+
+
+</details>
+
+#### When passing a primitive (e.g., int, double) to a method, what is received by the parameter?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A copy of the actual numeric or boolean value.
+</details>
+
+#### When passing an object to a method, what exactly is copied and passed?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A copy of the object reference (the memory address).
+</details>
+
+#### When passing an object to a method, what exactly is copied and passed?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A copy of the object reference (the memory address).
+</details>
+
+#### Why can a method modify the internal state (fields) of a passed object?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Because the parameter is a copy of the reference pointing to the same underlying object in memory.
+</details>
+
+#### Can a method reassign a caller's original variable to point to a new object?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    No.
+</details>
+
+#### What is the effect on the caller's variables after executing a swap(Object a, Object b) method that reassigns its parameters locally?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The caller's variables remain unchanged.
+</details>
+
+#### Why does a swap(a, b) method fail to swap the caller's original object references?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    The method only swaps local copies of the references.
+</details>
+
+#### If a method triples an int parameter x (e.g., x = x * 3), what happens to the original variable in the calling method?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    It remains unchanged.
+</details>
+
+#### True or False: In Java, "pass by value" means the method receives a copy of the entire object.
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    False; it receives a copy of the reference to the object.
+</details>
+
+#### How does the behavior of passing a primitive differ from passing an object reference in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Both pass a copy, but the object reference copy allows access to the original object's state.
+</details>
+
+#### What is the defining characteristic of a nested class in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    A class that is defined inside another enclosing class.
+</details>
 
 </details>
 

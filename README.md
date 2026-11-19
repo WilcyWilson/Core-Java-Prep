@@ -1158,6 +1158,15 @@
     Both pass a copy, but the object reference copy allows access to the original object's state.
 </details>
 
+</details>
+
+## Java Nested Class
+<details>
+
+<summary>
+  <h2>Click to reveal.</h2>
+</summary>
+
 #### What is the defining characteristic of a nested class in Java?
 <details>
   <summary>
@@ -1165,6 +1174,69 @@
   </summary>
 
     A class that is defined inside another enclosing class.
+</details>
+
+#### Can a nested class access private members of its outer enclosing class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Yes.
+</details>
+
+#### Does an enclosing outer class automatically have direct access to private members of its nested class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    No (it requires an instance reference of the nested class).
+</details>
+
+#### Which access modifiers can be applied to a nested class declared inside an outer class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    public, protected, private, or package-private (default).
+</details>
+
+#### What are the two main categories of nested classes in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Static nested classes and inner classes (non-static nested classes).
+</details>
+
+#### What is the syntax to instantiate a static nested class named StaticNested inside OuterClass?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    OuterClass.StaticNested obj = new OuterClass.StaticNested();
+</details>
+
+#### What is the syntax to instantiate a non-static inner class named Inner using an existing outer instance outerObj?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    OuterClass.Inner obj = outerObj.new Inner();
+</details>
+
+#### Why can a static nested class NOT directly access instance variables of its outer class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Because it is associated with the outer class itself, not with any specific outer instance.
 </details>
 
 </details>

@@ -1239,6 +1239,63 @@
     Because it is associated with the outer class itself, not with any specific outer instance.
 </details>
 
+#### How can a static nested class access a non-static member of its outer class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    By creating or receiving an explicit object instance of the outer class.
+</details>
+
+#### Which outer class members can a non-static inner class directly access?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Both static and non-static members (including private ones).
+
+   <img width="1488" height="1498" alt="image" src="https://github.com/user-attachments/assets/72ddb94c-69ee-4b6b-81e0-43ea0305f51b" />
+
+</details>
+
+#### What are two specialized types of non-static inner classes in Java?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Local inner classes and anonymous inner classes.
+</details>
+
+#### Why can an object of a non-static inner class NOT exist without an instance of the outer class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Because every inner class instance holds an implicit strong reference to an outer class instance.
+</details>
+
+#### Does an instance of a static nested class hold an implicit reference to an instance of its outer class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    No.
+</details>
+
+#### If Inner is a static nested class, what is the syntax to call its static method msg() from an external class?
+<details>
+  <summary>
+    Click to reveal answer.
+  </summary>
+
+    Outer.Inner.msg();
+</details>
+
 </details>
 
 # Java Concurrency in Practice
